@@ -9,7 +9,7 @@
     "format": "prettier --write \"server/**/*.{js,ts}\"",
     "dev": "nodemon --ext ts --exec ts-node -r tsconfig-paths/register server/index.ts",
     "build": "tsc",
-    "start": "node out/index.js"
+    "start": "node -r tsconfig-paths/register out/index.js"
   },
   "keywords": [
     "microservice"
