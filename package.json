@@ -1,0 +1,39 @@
+{
+  "name": "ms-products-ts",
+  "version": "1.0.0",
+  "description": "Ms Products",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "lint": "eslint \"server/**/*.{js,ts}\" --fix",
+    "format": "prettier --write \"server/**/*.{js,ts}\"",
+    "dev": "nodemon --ext ts --exec ts-node server/index.ts",
+    "build": "tsc",
+    "start": "node out/index.js"
+  },
+  "keywords": [
+    "microservice"
+  ],
+  "author": "al3xisvg",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@eslint/compat": "^1.2.7",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.5",
+    "@typescript-eslint/eslint-plugin": "^8.24.1",
+    "@typescript-eslint/parser": "^8.24.1",
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-import-resolver-typescript": "^3.8.3",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "nodemon": "^3.1.9",
+    "prettier": "^3.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}

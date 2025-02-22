@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    env_file: .env
+    ports:
+      - '${PORT}:${PORT}'
+    expose:
+      - '${PORT}'
+    environment:
+      - PORT=${PORT}
