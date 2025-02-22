@@ -10,6 +10,18 @@ interface IInventory {
   precio: number
 }
 
+interface IInventoryDB {
+  _id: string
+  producto: string
+  sku: string
+  marca: string
+  stock: number
+  precio: number
+  createdAt: string
+  udpatedAt: string
+  __v: number
+}
+
 class InventoriesService {
   private service: AxiosInstance
 
@@ -29,6 +41,17 @@ class InventoriesService {
       console.log(response.data)
     } catch (error) {
       console.error('ServicioInventories - createMany', error)
+    }
+  }
+
+  listAll = async (): Promise<IInventoryDB[] | null> => {
+    try {
+      const response = await this.service.get(`/inventories/list`)
+      const res: IInventoryDB[] = response.data?.inventories
+      return res
+    } catch (error) {
+      console.error('ServicioInvnetories - listAll', error)
+      return null
     }
   }
 }

@@ -2,6 +2,7 @@ import { Request, Response, Router } from 'express'
 
 import RequirementsService from '../services/requirements'
 import ProductsService from '../services/products'
+import InventoriesService from '@/services/inventories'
 
 const router = Router()
 
@@ -74,6 +75,33 @@ router.get(
       res.json({
         success: true,
         data: { requirement: requirementDB, products: productsDB },
+      })
+    } catch (error) {
+      res
+        .status(500)
+        .json({ message: 'Error al obtener el requerimiento', error })
+    }
+  }
+)
+
+router.get(
+  '/match/:requirementId',
+  async (req: Request, res: Response): Promise<void> => {
+    try {
+      const { requirementId } = req.params
+      const productsDB = await ProductsService.listByReq(requirementId)
+      if (!productsDB) {
+        throw new Error('No se pudieron listar los productos')
+      }
+
+      const inventoriesDB = await InventoriesService.listAll()
+      if (!inventoriesDB) {
+        throw new Error('No se pudieron listar los inventarios')
+      }
+
+      res.json({
+        success: true,
+        data: { products: productsDB, inventories: inventoriesDB },
       })
     } catch (error) {
       res
