@@ -34,8 +34,6 @@ class ProductsService {
 
   createMany = async (products: IProduct[]): Promise<IProductDB[] | null> => {
     try {
-      console.log('--product--s')
-      console.log(products)
       const response = await this.service.post('/products/create-many', {
         products,
       })
