@@ -57,7 +57,7 @@ router.get(
 )
 
 router.get(
-  '/obtain/requirements-with-products/:requirementId',
+  '/obtain/requirement-with-products/:requirementId',
   async (req: Request, res: Response): Promise<void> => {
     try {
       const { requirementId } = req.params
