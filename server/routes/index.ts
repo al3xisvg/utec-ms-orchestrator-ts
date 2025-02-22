@@ -1,7 +1,7 @@
 import { Request, Response, Router } from 'express'
 
-import RequirementsService from '@/services/requirements'
-import ProductsService from '@/services/products'
+import RequirementsService from '../services/requirements'
+import ProductsService from '../services/products'
 
 const router = Router()
 

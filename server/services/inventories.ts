@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from 'axios'
 
-import config from '@/config/app'
+import config from '../config/app'
 
 interface IInventory {
   producto: string

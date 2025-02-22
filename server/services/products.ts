@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from 'axios'
 
-import config from '@/config/app'
+import config from '../config/app'
 
 interface IProduct {
   nombre: string
@@ -34,13 +34,15 @@ class ProductsService {
 
   createMany = async (products: IProduct[]): Promise<IProductDB[] | null> => {
     try {
+      console.log('--product--s')
+      console.log(products)
       const response = await this.service.post('/products/create-many', {
         products,
       })
       const res: IProductDB[] = response.data?.products ?? []
       return res
     } catch (error: any) {
-      console.error('ServicioProductos - createMany', error.data)
+      console.error('ServicioProductos - createMany', error)
       return null
     }
   }
