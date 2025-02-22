@@ -2,7 +2,7 @@ import { Request, Response, Router } from 'express'
 
 import RequirementsService from '../services/requirements'
 import ProductsService from '../services/products'
-import InventoriesService from '@/services/inventories'
+import InventoriesService from '../services/inventories'
 
 const router = Router()
 
