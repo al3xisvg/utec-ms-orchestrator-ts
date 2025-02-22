@@ -7,7 +7,7 @@
     "test": "test",
     "lint": "eslint \"server/**/*.{js,ts}\" --fix",
     "format": "prettier --write \"server/**/*.{js,ts}\"",
-    "dev": "nodemon --ext ts --exec ts-node server/index.ts",
+    "dev": "nodemon --ext ts --exec ts-node -r tsconfig-paths/register server/index.ts",
     "build": "tsc",
     "start": "node out/index.js"
   },
@@ -17,6 +17,7 @@
   "author": "al3xisvg",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.7.9",
     "dotenv": "^16.4.7",
     "express": "^4.21.2"
   },
